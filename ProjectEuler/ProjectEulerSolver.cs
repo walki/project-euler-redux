@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ProjectEuler
 {
@@ -6,13 +7,9 @@ namespace ProjectEuler
     {
         internal int Problem1(int n)
         {
-            int sum = 0;
-            for (int i = 1; i < n; i++)
-            {
-                if (i % 3 == 0 || i % 5 == 0) 
-                    sum += i;
-            }
-            return sum;
+            return Enumerable.Range(0, n)
+                        .Where(curr => curr % 3 == 0 || curr % 5 == 0)
+                        .Sum();
         }
     }
 }
