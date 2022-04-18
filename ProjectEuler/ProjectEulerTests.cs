@@ -45,5 +45,27 @@ namespace ProjectEuler
             Assert.AreEqual(expected, sum);
         }
 
+        /*
+         
+        The prime factors of 13195 are 5, 7, 13 and 29.
+
+        What is the largest prime factor of the number 600,851,475,143 ?
+        */
+
+        [Test]
+        [TestCase(4, 2)]
+        [TestCase(6, 3)]
+        [TestCase(8, 2)]
+        [TestCase(9, 3)]
+        [TestCase(10, 5)]
+        [TestCase(13195, 29)]
+        [TestCase(60085, 197)]
+        [TestCase(600851, 20719)]
+        public void ReturnLargestPrimeFactor(long num, long expected)
+        {
+            long largestPrimeFactor = solver.Problem3(num);
+            Assert.AreEqual(expected, largestPrimeFactor);
+        }
+
     }
 }

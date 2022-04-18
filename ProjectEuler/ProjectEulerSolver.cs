@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProjectEuler
@@ -32,6 +33,32 @@ namespace ProjectEuler
             } while (curr < max);
 
             return sum;
+        }
+
+        internal long Problem3(long num)
+        {
+            List<long> primes = new List<long>() { 2,3,5};
+            List<long> primesFactors = new List<long>();
+
+            for(long i = 2; i <= num /2; i++)
+            {
+                bool isPrime = true;
+                foreach(long prime in primes)
+                {
+                    if (i % prime == 0)
+                    {
+                        isPrime = false;
+                    }
+
+                    if (num % prime == 0)
+                    {
+                        primesFactors.Add(prime);
+                    }
+                }
+                if (isPrime) primes.Add(i);
+            }
+
+            return primesFactors.Last();
         }
     }
 }
